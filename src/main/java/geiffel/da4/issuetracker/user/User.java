@@ -22,17 +22,9 @@ import java.util.Objects;
 public class User {
 
     @Id
-/*    @NotNull
-    @Max(10)
-    @Pattern(regexp = "[^[0-9]{1,10}$]")*/
+    @NotNull
     private Long id;
-/*    @NotNull
-    @Min(3)@Max(40)
-    @Pattern(regexp = "[^[a-z]{3,40}$]")*/
     private String nom;
-/*    @NotNull
-    @Min(4)@Max(255)
-    @Pattern(regexp = "[^[a-z]{2,30}$]")*/
     private Fonction fonction;
     @OneToMany(mappedBy = "author")
     @JsonSerialize(contentUsing = CommentaireURLSerializer.class)

@@ -34,13 +34,13 @@ public class CommentaireLocalService extends LocalService<Commentaire, Long>
     @Override
     public List<Commentaire> getAllByAuthorId(Long id) {
         return allValues.stream()
-                .filter(commentaire -> commentaire.getAuthorId()==id)
+                .filter(commentaire -> commentaire.getAuthorId().equals(id))
                 .toList();
     }
     @Override
     public List<Commentaire> getAllByIssueCode(Long code) {
         return this.allValues.stream()
-                .filter(commentaire -> commentaire.getIssueCode()==code)
+                .filter(commentaire -> commentaire.getIssueCode().equals(code))
                 .toList();
     }
 
