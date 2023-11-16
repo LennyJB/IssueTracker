@@ -33,8 +33,8 @@ public class CommentaireController {
 
     @PostMapping("")
     public ResponseEntity create(@RequestBody Commentaire commentaire) {
-        Commentaire created = commentaireService.create(commentaire);
-        return ResponseEntity.created(URI.create("/commentaires/"+created.getId())).build();
+        Commentaire createdCom = commentaireService.create(commentaire);
+        return ResponseEntity.created(URI.create("/commentaires/"+createdCom.getId())).build();
     }
 
     @PutMapping("{id}")

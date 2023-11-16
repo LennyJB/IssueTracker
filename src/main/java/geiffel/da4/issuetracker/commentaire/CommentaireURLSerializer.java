@@ -3,8 +3,6 @@ package geiffel.da4.issuetracker.commentaire;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import geiffel.da4.issuetracker.issue.Issue;
-import geiffel.da4.issuetracker.user.User;
 
 import java.io.IOException;
 

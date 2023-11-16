@@ -32,8 +32,8 @@ public class IssueController  {
 
     @PostMapping("")
     public ResponseEntity createIssue(Issue issue){
-        Issue created = issueService.create(issue);
-        return ResponseEntity.created(URI.create("/issues/"+created.getCode().toString())).build();
+        Issue createdIssue = issueService.create(issue);
+        return ResponseEntity.created(URI.create("/issues/"+createdIssue.getCode().toString())).build();
     }
 
     @PutMapping("{code}")

@@ -13,6 +13,8 @@ import java.util.Optional;
 @Qualifier("jpa")
 public class IssueJPAService implements IssueService{
 
+    private String strIssue = "Issue";
+
     @Autowired
     IssueRepository issueRepository;
     @Override
@@ -26,14 +28,14 @@ public class IssueJPAService implements IssueService{
         if(issue.isPresent()){
             return issue.get();
         }
-        throw new ResourceNotFoundException("Issue", code);
+        throw new ResourceNotFoundException(strIssue, code);
 
     }
 
     @Override
     public Issue create(Issue newIssue) throws ResourceAlreadyExistsException {
         if (issueRepository.existsById(newIssue.getCode())){
-            throw new ResourceAlreadyExistsException("Issue", newIssue.getCode());
+            throw new ResourceAlreadyExistsException(strIssue, newIssue.getCode());
         }
         return issueRepository.save(newIssue);
     }
@@ -43,7 +45,7 @@ public class IssueJPAService implements IssueService{
         if (issueRepository.existsById(code)){
             issueRepository.save(updatedIssue);
         }
-        throw new ResourceNotFoundException("Issue", code);
+        throw new ResourceNotFoundException(strIssue, code);
     }
 
     @Override
@@ -51,6 +53,6 @@ public class IssueJPAService implements IssueService{
         if (issueRepository.existsById(code)){
             issueRepository.deleteById(code);
         }
-        throw new ResourceNotFoundException("Issue", code);
+        throw new ResourceNotFoundException(strIssue, code);
     }
 }

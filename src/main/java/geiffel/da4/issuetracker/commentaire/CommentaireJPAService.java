@@ -13,6 +13,8 @@ import java.util.Optional;
 @Qualifier("jpa")
 public class CommentaireJPAService implements CommentaireService{
 
+    private String strCom = "Commentaire";
+
     @Autowired
     CommentaireRepository commentaireRepository;
     @Override
@@ -26,7 +28,7 @@ public class CommentaireJPAService implements CommentaireService{
         if (commentaire.isPresent()){
             return commentaire.get();
         }
-        throw new ResourceNotFoundException("Commentaire", id);
+        throw new ResourceNotFoundException(strCom, id);
     }
 
     @Override
@@ -42,7 +44,7 @@ public class CommentaireJPAService implements CommentaireService{
     @Override
     public Commentaire create(Commentaire newCommentaire) throws ResourceAlreadyExistsException {
         if (commentaireRepository.existsById(newCommentaire.getId())){
-            throw new ResourceAlreadyExistsException("Commentaire", newCommentaire.getId());
+            throw new ResourceAlreadyExistsException(strCom, newCommentaire.getId());
         }
         return commentaireRepository.save(newCommentaire);
     }
@@ -52,7 +54,7 @@ public class CommentaireJPAService implements CommentaireService{
         if (commentaireRepository.existsById(id)){
             commentaireRepository.save(toUpdate);
         }
-        throw new ResourceNotFoundException("Commentaire", id);
+        throw new ResourceNotFoundException(strCom, id);
     }
 
     @Override
@@ -60,6 +62,6 @@ public class CommentaireJPAService implements CommentaireService{
         if (commentaireRepository.existsById(id)){
             commentaireRepository.deleteById(id);
         }
-        throw new ResourceNotFoundException("Commmentaire", id);
+        throw new ResourceNotFoundException(strCom, id);
     }
 }
