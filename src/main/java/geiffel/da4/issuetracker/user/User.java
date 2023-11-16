@@ -81,6 +81,9 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
+        if(obj.equals(null)){
+            return false;
+        }
         if (getClass() != obj.getClass()){
             return false;
         }
