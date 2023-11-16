@@ -1,7 +1,5 @@
 package geiffel.da4.issuetracker.projet;
 
-import geiffel.da4.issuetracker.exceptions.ResourceNotFoundException;
-
 import java.util.List;
 
 public interface ProjetService {

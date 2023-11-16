@@ -5,7 +5,8 @@ import java.util.Objects;
 
 public class TimestampUtils {
 
-    public TimestampUtils() {
+    private TimestampUtils() {
+        //void constructor
     }
 
     public static Boolean isEquals(Timestamp timestamp1, Timestamp timestamp2) {
